@@ -3,7 +3,7 @@
 */
 
 import React from 'react'
-import { StyleSheet, View, Text, ActivityIndicator, Image } from 'react-native'
+import { StyleSheet, View, Text, ActivityIndicator, Image, FlatList } from 'react-native'
 
 class PlaylistView extends React.Component {
 
@@ -55,6 +55,20 @@ class PlaylistView extends React.Component {
           </View>
 
         </View>
+
+        <View style={styles.listContainer}>
+
+          <FlatList
+            data={this.state.dataSource.tracks.items}
+            renderItem={({item}) => (
+              <View style={styles.itemList}>
+                <Text style={styles.white_text}>{item.track.name}</Text>
+                <Text style={styles.grey_text}>{item.track.artists[0].name}</Text>
+              </View>
+            )}
+            keyExtractor={({id}, index) => id}
+          />
+        </View>
       </View>
     )
   }
@@ -67,7 +81,14 @@ const styles = StyleSheet.create({
   },
   topContainer:{
     flexDirection: 'row',
-    height: 190
+    flex: 1
+  } ,
+  listContainer:{
+    flex: 3
+  },
+  itemList:{
+    height: 64,
+    flex: 1
   } ,
   image: {
     width: 120,
