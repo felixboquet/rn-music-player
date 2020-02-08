@@ -16,12 +16,13 @@ class PlaylistView extends React.Component {
   }
 
   // Function to play a track with the sound player
-  _playTrack = (title, artist) => {
+  _playTrack = (title, artist, url) => {
 
     console.log("Playing track " + title + artist)
-    // Passing the title and the artist to the player view
+
+    // Passing the title, the artist and the sound preview url to the player view
     this.setState({
-      title: title, artist: artist
+      title: title, artist: artist, url: url
     });
 
   }
@@ -76,7 +77,7 @@ class PlaylistView extends React.Component {
             data={this.state.dataSource.tracks.items}
             renderItem={({item}) => (
               <TouchableOpacity style={styles.itemList}
-                    onPress={() => this._playTrack(item.track.name, item.track.artists[0].name)}>
+                    onPress={() => this._playTrack(item.track.name, item.track.artists[0].name, item.track.preview_url)}>
                 <Text style={styles.white_text}>{item.track.name}</Text>
                 <Text style={styles.grey_text}>{item.track.artists[0].name}</Text>
               </TouchableOpacity>

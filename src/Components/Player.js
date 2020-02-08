@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image } from 'react-native'
+//import SoundPlayer from 'react-native-sound-player'
 
 class Player extends React.Component {
 
@@ -9,6 +10,11 @@ class Player extends React.Component {
   }
 
   render() {
+
+    // Launch the player with the sound preview
+    /*if (this.props.url) {
+      SoundPlayer.playUrl(this.props.url)
+    }*/
 
     return(<View style={styles.bottomContainer}>
 
