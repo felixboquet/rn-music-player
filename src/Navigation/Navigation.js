@@ -10,12 +10,10 @@ import Player from '../Components/Player'
 // Navigation between the playlists and the detail of a playlist
 const MainStackNavigator = createStackNavigator({
   Main: {
-    screen: MainView,
-    player: Player
+    screen: MainView
   },
   Playlist: {
-    screen: PlaylistView,
-    player: Player
+    screen: PlaylistView
   }
 })
 

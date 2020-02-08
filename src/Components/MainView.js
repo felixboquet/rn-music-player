@@ -57,7 +57,7 @@ class MainView extends React.Component {
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) => (
-            // I wanted to create a PlaylistItem to separate the code but it didn't work :(
+            // I wanted to create a PlaylistItem to separate the code but it didn't work
             <TouchableOpacity style={{ flex: 1, flexDirection: 'column', margin: 1 }}
                   onPress={() => this._displayDetailForPlaylist(item.id)}>
               <Image style={styles.imagePlaylist} source={{ uri: item.images[0].url }} />
@@ -67,7 +67,9 @@ class MainView extends React.Component {
           keyExtractor={({id}, index) => id}
         />
 
+        {/* Display the player for task 4*/}
         <Player/>
+
       </View>
     );
   }

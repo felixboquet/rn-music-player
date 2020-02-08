@@ -1,3 +1,7 @@
+/*
+  Player view on the bottom of the screen
+*/
+
 import React from 'react'
 import { StyleSheet, View, Text, Image } from 'react-native'
 //import SoundPlayer from 'react-native-sound-player'

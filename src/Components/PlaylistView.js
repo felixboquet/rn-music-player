@@ -57,6 +57,8 @@ class PlaylistView extends React.Component {
 
     return (
       <View style={styles.main_container}>
+
+        {/*Top view with informations on the playlist*/}
         <View style={styles.topContainer}>
           <Image
             style={styles.image}
@@ -68,9 +70,9 @@ class PlaylistView extends React.Component {
               <Text style={styles.white_text}>{this.state.dataSource.description}</Text>
               <Text style={styles.grey_text}>{this.state.dataSource.followers.total} followers</Text>
           </View>
-
         </View>
 
+        {/*Tracks list*/}
         <View style={styles.listContainer}>
 
           <FlatList
@@ -87,6 +89,7 @@ class PlaylistView extends React.Component {
           />
         </View>
 
+        {/*Player*/}
         <Player title={this.state.title} artist={this.state.artist}/>
 
       </View>
