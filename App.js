@@ -3,7 +3,7 @@
 */
 
 import React from 'react'
-import Navigation from './Navigation/Navigation'
+import Navigation from './src/Navigation/Navigation'
 
 export default class App extends React.Component {
   render() {

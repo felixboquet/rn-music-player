@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
+import Player from './Player'
 
 class MainView extends React.Component {
 
@@ -13,7 +14,7 @@ class MainView extends React.Component {
     this.state ={ isLoading: true}
   }
 
-  // Functin to display the detail of a playlist
+  // Function to display the detail of a playlist
   _displayDetailForPlaylist = (idPlaylist) => {
     console.log("Display playlist with id " + idPlaylist)
     this.props.navigation.navigate("Playlist", {idPlaylist: idPlaylist})
@@ -65,6 +66,8 @@ class MainView extends React.Component {
           numColumns={2}
           keyExtractor={({id}, index) => id}
         />
+
+        <Player/>
       </View>
     );
   }

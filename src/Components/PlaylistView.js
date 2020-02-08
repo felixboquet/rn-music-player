@@ -3,13 +3,27 @@
 */
 
 import React from 'react'
-import { StyleSheet, View, Text, ActivityIndicator, Image, FlatList } from 'react-native'
+import { StyleSheet, View, Text, ActivityIndicator, Image, FlatList, TouchableOpacity, Animated } from 'react-native'
+import Player from './Player'
 
 class PlaylistView extends React.Component {
 
   constructor(props){
     super(props);
-    this.state ={ isLoading: true}
+    this.state ={
+      isLoading: true
+    }
+  }
+
+  // Function to play a track with the sound player
+  _playTrack = (title, artist) => {
+
+    console.log("Playing track " + title + artist)
+    // Passing the title and the artist to the player view
+    this.setState({
+      title: title, artist: artist
+    });
+
   }
 
   componentDidMount(){
@@ -61,14 +75,19 @@ class PlaylistView extends React.Component {
           <FlatList
             data={this.state.dataSource.tracks.items}
             renderItem={({item}) => (
-              <View style={styles.itemList}>
+              <TouchableOpacity style={styles.itemList}
+                    onPress={() => this._playTrack(item.track.name, item.track.artists[0].name)}>
                 <Text style={styles.white_text}>{item.track.name}</Text>
                 <Text style={styles.grey_text}>{item.track.artists[0].name}</Text>
-              </View>
+              </TouchableOpacity>
+
             )}
             keyExtractor={({id}, index) => id}
           />
         </View>
+
+        <Player title={this.state.title} artist={this.state.artist}/>
+
       </View>
     )
   }
@@ -116,7 +135,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     color: 'white'
-  }
+  },
 })
 
 export default PlaylistView
